@@ -1,0 +1,8 @@
+node_modules
+.idea
+.metadata
+.sass-cache
+conf/config.yml
+logs/
+views
+node_modules/
