@@ -4,5 +4,8 @@ node_modules
 .sass-cache
 conf/config.yml
 logs/
+public
+lib/mysql.js
 views
 node_modules/
+
