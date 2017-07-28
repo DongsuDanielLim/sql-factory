@@ -2,11 +2,45 @@
 
 var router = require('express').Router()
 
+const define = require('../lib/define')
+const sqlBuilder = require('../lib/builder')
+
 /* GET home page. */
 router.route('/')
 .get(
   function (req, res, next) {
-    res.render('index', { title: 'Express' })
+    var test = define.define
+
+    var sql_insert = sqlBuilder.insert(test, {
+      'field1': 'field1',
+      'filed2': 'field2'
+    })
+
+    var sql_select = sqlBuilder.select(test, {
+      'where': {
+        'field1': 'field1'
+      }
+    })
+
+    var sql_update = sqlBuilder.update(test, {
+      'where': {}
+    }, {
+      'field1': 'modi-field1',
+      'field2': 'modi-field2'
+    })
+
+    var sql_delete = sqlBuilder.delete(test, {
+      'where': {
+        'field1': 'del_field1'
+      }
+    })
+
+    res.json({
+      'sql_insert': sql_insert,
+      'sql_select': sql_select,
+      'sql_update': sql_update,
+      'sql_delete': sql_delete
+    })
   }
 )
 
